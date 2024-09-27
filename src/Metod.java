@@ -2,6 +2,7 @@ import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 // создание библиотеки методав работы с файлом записи и чтения
@@ -69,7 +70,7 @@ public class Metod {
         return uniqueNames;
     }
 
-//3 подсчитать, сколько раз в файле содержится строка "Вася Пупкин"
+    //3 подсчитать, сколько раз в файле содержится строка "Вася Пупкин"
     //подсчет простым обходом
     public static int countLine(String fileName, String targetLine) {
         int count = 0;
@@ -97,12 +98,47 @@ public class Metod {
         }
     }
 
-//4 подсчитать, сколько в файле строк, которые начинаются на "Вася"
+    //4 подсчитать, сколько в файле строк, которые начинаются на "Вася"
+    public static int countLinesStartingWith(String fileName, String prefix) {
+        try (Stream<String> lines = Files.lines(Paths.get(fileName))) {
+            return (int) lines.filter(line -> line.startsWith(prefix))
+                    .count();
+        } catch (IOException e) {
+            e.printStackTrace();
+            return 0;
+        }
+    }
 
+    //5 Взять из списка всех строк только строки короче 15 символов
+    // метод подсчета
+    public static List<String> getShortLines(String fileName) {
+        List<String> shortLines = new ArrayList<>();
+        try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                if (line.length() < 15) {
+                    shortLines.add(line);
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return shortLines;
+    }
+
+    // метод Streams API
+    public static List<String> getShortLines2(String fileName) {
+        try (Stream<String> lines = Files.lines(Paths.get(fileName))) {
+            return lines.filter(line -> line.length() < 15)
+                    .collect(Collectors.toList());
+        } catch (IOException e) {
+            e.printStackTrace();
+            return List.of();
+        }
+    }
 
 
 
 
 
 }
-

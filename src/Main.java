@@ -32,12 +32,24 @@ public class Main {
 //    }
 
 
-        System.out.println("подсчитать, сколько раз в файле содержится строка:: Вася Пупкин");
-        String targetLine = "Вася Пупкин";
-        int lineCount = Metod.countLine2(fileName, targetLine);
-        System.out.println("Строка \"" + targetLine + "\" встречается " + lineCount + " раз(а) в файле.");
-    }
+//        System.out.println("подсчитать, сколько раз в файле содержится строка:: Вася Пупкин");
+//        String targetLine = "Вася Пупкин";
+//        int lineCount = Metod.countLine2(fileName, targetLine);
+//        System.out.println("Строка \"" + targetLine + "\" встречается " + lineCount + " раз(а) в файле.");
 
+//        System.out.println("подсчитать, сколько в файле строк, которые начинаются на:: Вася");
+//        String prefix = "Вася";
+//        int lineCount = Metod.countLinesStartingWith(fileName, prefix);
+//        System.out.println("Количество строк, начинающихся с \"" + prefix + "\": " + lineCount);
+
+        System.out.println("Взять из списка всех строк только строки короче 15 символов");
+        List<String> shortLines = Metod.getShortLines(fileName);
+        shortLines.forEach(System.out::println);
+
+
+
+
+    }
 
 
 
