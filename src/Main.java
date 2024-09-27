@@ -42,12 +42,17 @@ public class Main {
 //        int lineCount = Metod.countLinesStartingWith(fileName, prefix);
 //        System.out.println("Количество строк, начинающихся с \"" + prefix + "\": " + lineCount);
 
-        System.out.println("Взять из списка всех строк только строки короче 15 символов");
-        List<String> shortLines = Metod.getShortLines(fileName);
+//        System.out.println("Взять из списка всех строк только строки короче 15 символов");
+//        List<String> shortLines = Metod.getShortLines(fileName);
+//        shortLines.forEach(System.out::println);
+
+        System.out.println("Отсортировать список строк, которые короче 15 символов");
+        List<String> shortLines2 = Metod.getShortLinesSorted(fileName);
+        shortLines2.forEach(System.out::println);
+
+        System.out.println("Отсортировать список строк, которые короче 15 символов - по кол-ву символов");
+        List<String> shortLines = Metod.getShortLinesSortedByLength(fileName);
         shortLines.forEach(System.out::println);
-
-
-
 
     }
 

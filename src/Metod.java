@@ -137,8 +137,26 @@ public class Metod {
         }
     }
 
-
-
-
-
+//  6  Отсортировать список строк, которые короче 15 символов - в алфавитном порядке
+    public static List<String> getShortLinesSorted(String fileName) {
+        try (Stream<String> lines = Files.lines(Paths.get(fileName))) {
+            return lines.filter(line -> line.length() < 15)
+                    .sorted(Comparator.naturalOrder())
+                    .collect(Collectors.toList());
+        } catch (IOException e) {
+            e.printStackTrace();
+            return List.of();
+        }
+    }
+// по количеству символов
+    public static List<String> getShortLinesSortedByLength(String fileName) {
+        try (Stream<String> lines = Files.lines(Paths.get(fileName))) {
+            return lines.filter(line -> line.length() < 15)
+                    .sorted(Comparator.comparingInt(String::length))
+                    .collect(Collectors.toList());
+        } catch (IOException e) {
+            e.printStackTrace();
+            return List.of();
+        }
+    }
 }
