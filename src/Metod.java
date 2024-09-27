@@ -1,7 +1,6 @@
 import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
+
 // создание библиотеки методав работы с файлом записи и чтения
 public class Metod {
 
@@ -37,20 +36,36 @@ public class Metod {
 //    }
 
 
-        public static List<String> readLinesFromFile(String fileName) {
-            List<String> lines = new ArrayList<>();
+    public static List<String> readLinesFromFile(String fileName) {
+        List<String> lines = new ArrayList<>();
+        try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                lines.add(line);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return lines;
+    }
+
+    public class uniqueNames {
+        public static Set<String> getUniqueNames(String fileName) {
+            Set<String> uniqueNames = new HashSet<>();
             try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
                 String line;
                 while ((line = reader.readLine()) != null) {
-                    lines.add(line);
+                    String[] parts = line.split(",");
+                    for (String name : parts) {
+                        uniqueNames.add(name.trim());
+                    }
                 }
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            return lines;
+            return uniqueNames;
         }
 
-
     }
-
+}
 

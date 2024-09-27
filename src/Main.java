@@ -13,16 +13,22 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 public class Main {
     public static void main(String[] args) {
 
-            String fileName = "output.txt"; // Замените на фактическое имя файла
-            List<String> fileLines = Metod.readLinesFromFile(fileName);
-            for (String line : fileLines) {
-                System.out.println(line);
-            }
+            String fileName = "a.txt"; // Замените на фактическое имя файла
+//            List<String> fileLines = Metod.readLinesFromFile(fileName);
+//            for (String line : fileLines) {
+//                System.out.println(line);
+//            }
 
+System.out.println("Выведем список уникальных значений");
+        Set<String> uniqueNames = Metod.uniqueNames.getUniqueNames(fileName);
+        for (String name : uniqueNames) {
+            System.out.println(name);
+        }
 
 
     }
