@@ -19,7 +19,7 @@ public class Main {
     public static void main(String[] args) {
 
         String fileName = "a.txt"; // Замените на фактическое имя файла
-
+        String outputFile = "out.txt"; // Замените на фактическое имя файла
 //  System.out.println("читаем вайл и выводим строки ");
 //            List<String> fileLines = Metod.readLinesFromFile(fileName);
 //            for (String line : fileLines) {
@@ -55,10 +55,11 @@ public class Main {
 //        shortLines.forEach(System.out::println);
 
         System.out.println("Заменить в списке строк все буквы В на V  ");
-        List<String> fileLines = Metod.readLinesFromFile(fileName);
-        for (String line : fileLines) {
-            System.out.println(line.replace('В', 'V'));
-        }
+//        List<String> fileLines = Metod.readLinesFromFile(fileName);
+//        for (String line : fileLines) {
+//            System.out.println(line.replace('В', 'V'));
+//        }
+        Metod.replaceCharFile(fileName,outputFile,'В', 'V');
 
 
     }

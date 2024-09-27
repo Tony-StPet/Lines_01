@@ -4,6 +4,8 @@ import java.nio.file.Paths;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+import java.io.BufferedWriter;
+import java.io.BufferedReader;
 
 // создание библиотеки методав работы с файлом записи и чтения
 public class Metod {
@@ -159,6 +161,19 @@ public class Metod {
             return List.of();
         }
     }
+
+//7 Заменить в файле строк все буквы В на V и запись в другой файл
+public static void replaceCharFile(String filename, String outputFile,char old, char newChar){
+         try (
+             BufferedReader reader = new BufferedReader( new FileReader(filename));
+                BufferedWriter writer = new BufferedWriter( new FileWriter(outputFile))){
+                    String result = reader.lines().map(line->line.replace(old, newChar)).collect(Collectors.joining("\n"));
+                    writer.write(result);
+         } catch (IOException e) {
+             e.printStackTrace();
+         }
+    }
+
 
 
 
