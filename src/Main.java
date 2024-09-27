@@ -18,27 +18,34 @@ import java.util.Set;
 public class Main {
     public static void main(String[] args) {
 
-            String fileName = "a.txt"; // Замените на фактическое имя файла
+        String fileName = "a.txt"; // Замените на фактическое имя файла
+
+//  System.out.println("читаем вайл и выводим строки ");
 //            List<String> fileLines = Metod.readLinesFromFile(fileName);
 //            for (String line : fileLines) {
 //                System.out.println(line);
-//            }
+//   }
+//    System.out.println("Выведем список уникальных значений");
+//        Set<String> uniqueNames = Metod.getUniqueNames(fileName);
+//        for (String name : uniqueNames) {
+//            System.out.println(name);
+//    }
 
-System.out.println("Выведем список уникальных значений");
-        Set<String> uniqueNames = Metod.uniqueNames.getUniqueNames(fileName);
-        for (String name : uniqueNames) {
-            System.out.println(name);
-        }
 
-
+        System.out.println("подсчитать, сколько раз в файле содержится строка:: Вася Пупкин");
+        String targetLine = "Вася Пупкин";
+        int lineCount = Metod.countLine2(fileName, targetLine);
+        System.out.println("Строка \"" + targetLine + "\" встречается " + lineCount + " раз(а) в файле.");
     }
+
+
+
+
+
 
 //    private static void writeToFile() {
 //        List<Row> words = Metod.makeLines();
 //        Metod.printLines(words);
 //        Metod.writeLineToFile(words, "output.txt");
 //    }
-
-
-
 }
