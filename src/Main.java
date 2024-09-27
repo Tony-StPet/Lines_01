@@ -8,20 +8,31 @@
 //7 Заменить в списке строк все буквы В на V
 
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
 
-        writeToFile();
+            String fileName = "output.txt"; // Замените на фактическое имя файла
+            List<String> fileLines = Metod.readLinesFromFile(fileName);
+            for (String line : fileLines) {
+                System.out.println(line);
+            }
+
 
 
     }
 
-    private static void writeToFile() {
-        List<Row> words = Metod.makeLines();
-        Metod.printLines(words);
-        Metod.writeLineToFile(words, "output.txt");
-    }
+//    private static void writeToFile() {
+//        List<Row> words = Metod.makeLines();
+//        Metod.printLines(words);
+//        Metod.writeLineToFile(words, "output.txt");
+//    }
+
+
 
 }
