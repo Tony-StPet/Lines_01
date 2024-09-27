@@ -46,13 +46,20 @@ public class Main {
 //        List<String> shortLines = Metod.getShortLines(fileName);
 //        shortLines.forEach(System.out::println);
 
-        System.out.println("Отсортировать список строк, которые короче 15 символов");
-        List<String> shortLines2 = Metod.getShortLinesSorted(fileName);
-        shortLines2.forEach(System.out::println);
+//        System.out.println("Отсортировать список строк, которые короче 15 символов");
+//        List<String> shortLines2 = Metod.getShortLinesSorted(fileName);
+//        shortLines2.forEach(System.out::println);
+//
+//        System.out.println("Отсортировать список строк, которые короче 15 символов - по кол-ву символов");
+//        List<String> shortLines = Metod.getShortLinesSortedByLength(fileName);
+//        shortLines.forEach(System.out::println);
 
-        System.out.println("Отсортировать список строк, которые короче 15 символов - по кол-ву символов");
-        List<String> shortLines = Metod.getShortLinesSortedByLength(fileName);
-        shortLines.forEach(System.out::println);
+        System.out.println("Заменить в списке строк все буквы В на V  ");
+        List<String> fileLines = Metod.readLinesFromFile(fileName);
+        for (String line : fileLines) {
+            System.out.println(line.replace('В', 'V'));
+        }
+
 
     }
 
